@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btnDesign {
+    @apply mx-2 shadow-lg p-1 bg-blue-200 rounded-md hover:bg-gray-200 hover:shadow-inner;
+}
+
+.tableDesign {
+    @apply border border-gray-500 px-8 py-4;
+}

@@ -1,34 +1,43 @@
 <template>
-    <h1>TWD to foreign currency</h1>
-    <button @click="calUSD" class="usd">USD</button>
-    <button @click="calEUR" class="eur">EUR</button>
-    <button @click="calAUD" class="aud">AUD</button>
-    <button @click="calJPY" class="jpy">JPY</button>
-    <button @click="calKRW" class="krw">KRW</button>
-    <input type="text" v-model="inputDollar">
-    <div v-if="dollarType">
-        <h3> {{ inputDollar }} TWD = {{ result }} {{ dollarType }}</h3>
+<div class="bg-gray-100 w-1/3 mx-auto pb-5">
+    <h1 class="pt-4 text-2xl font-google">外幣換算小工具</h1>
+    <div class="p-2 m-2 font-mono">
+        <button @click="calUSD" class="btnDesign"><img src="../assets/united-states.png" class="w-5 inline-block">USD</button>
+        <button @click="calEUR" class="btnDesign"><img src="../assets/european-union.png" class="w-5 inline-block">EUR</button>
+        <button @click="calAUD" class="btnDesign"><img src="../assets/australia.png" class="w-5 inline-block">AUD</button>
+        <button @click="calJPY" class="btnDesign"><img src="../assets/japan.png" class="w-5 inline-block">JPY</button>
+        <button @click="calKRW" class="btnDesign"><img src="../assets/south-korea.png" class="w-5 inline-block">KRW</button>
     </div>
-    <div v-else>
-        <h3>Input the amount of TWD to convert</h3>
+    <input type="text" v-model="inputDollar" class="border-2 border-black mx-auto text-center">
+    <div class="p-3">
+        <div v-if="dollarType">
+            <h3> {{ inputDollar }} NTD = {{ result }} {{ dollarType }}</h3>
+        </div>
+        <div v-else>
+            <h3>輸入你想轉換的新台幣數量</h3>
+        </div>
     </div>
-    <ul>
-        <li>
-            <h4>USD to TWD: {{ currData['USD'] }}</h4>
-        </li>
-        <li>
-            <h4>EUR to TWD: {{ currData['EUR'] }}</h4>
-        </li>
-        <li>
-            <h4>AUD to TWD: {{ currData['AUD'] }}</h4>
-        </li>
-        <li>
-            <h4>JPY to TWD: {{ currData['JPY'] }}</h4>
-        </li>
-        <li>
-            <h4>KRW to TWD: {{ currData['KRW'] }}</h4>
-        </li>
-    </ul>
+    <table class="mx-auto shadow-lg bg-white">
+        <tr>
+            <th class="tableDesign bg-blue-100">幣別</th><th class="tableDesign bg-blue-100">1新台幣=多少目標幣別</th>
+        </tr>
+        <tr>
+            <td class="tableDesign"><img src="../assets/united-states.png" class="p-1 w-9 inline-block">USD</td><td class="tableDesign">{{ currData['USD'] }}</td>
+        </tr>
+        <tr>
+            <td class="tableDesign"><img src="../assets/european-union.png" class="p-1 w-9 inline-block">EUR</td><td class="tableDesign">{{ currData['EUR'] }}</td>
+        </tr>
+        <tr>
+            <td class="tableDesign"><img src="../assets/australia.png" class="p-1 w-9 inline-block">AUD</td><td class="tableDesign">{{ currData['AUD'] }}</td>
+        </tr>
+        <tr>
+            <td class="tableDesign"><img src="../assets/japan.png" class="p-1 w-9 inline-block">JPY</td><td class="tableDesign">{{ currData['JPY'] }}</td>
+        </tr>
+        <tr>
+            <td class="tableDesign"><img src="../assets/south-korea.png" class="p-1 w-9 inline-block">KRW</td><td class="tableDesign">{{ currData['KRW'] }}</td>
+        </tr>
+    </table>
+    </div>
 </template>
 
 <script>
@@ -84,38 +93,4 @@ export default {
 </script>
 
 <style>
-    button {
-        margin: 0px 5px 20px 0px;
-        border-radius: 6px;
-        font-size: 20px;
-        color: white;
-    }
-    button.usd {
-        background: crimson;
-    }
-    button.eur {
-        background: blue;
-    }
-    button.aud {
-        background: green;
-    }
-    button.jpy {
-        background: purple;
-    }
-    button.krw {
-        background: black;
-    }
-    button:hover {
-        background: lightgray;
-        color: black;
-    }
-    input {
-        display: block;
-        margin: 0px 0px 0px 560px;
-        width: 290px;
-    }
-    li {
-        list-style-type: none;
-        margin: 0px 50px 0px 0px;
-    }
 </style>
